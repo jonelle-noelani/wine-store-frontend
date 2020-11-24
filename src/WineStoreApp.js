@@ -22,7 +22,7 @@ componentDidMount(){
 }
     render() {
         console.log(this.state.wines)
-        console.log(this.state.featured)
+        // console.log(this.state.featured)
         return (
             <div className="winestoreapp">
                 <Router>

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 export default class Featured extends Component {
     
     render() {
-        console.log(this.props.featured.image)
         return (
             <div className="container">
                 <h1>Featured Wine</h1>

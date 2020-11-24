@@ -11,12 +11,13 @@ import Login from "./WineContainer/Login"
 import AccountForm from "./WineContainer/AccountForm"
 
 const AppRouter = (props) => {
-    console.log(props.featured)
+    // console.log(props.featured)
+    console.log(props.wines)
   return (
     <div>
       <Switch>
         <Route exact path="/" render={routerProps => <Featured {...routerProps} featured={props.featured} />} />
-        <Route exact path="/browse" component={Browse} />
+        <Route exact path="/browse" render={routerProps => <Browse {...routerProps} wines={props.wines} />} />
         <Route exact path="/wine" component={DisplayWine} />
         <Route exact path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
