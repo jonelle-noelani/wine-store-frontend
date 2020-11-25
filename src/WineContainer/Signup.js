@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Login extends React.Component {constructor() {
+class Signup extends React.Component {constructor() {
     super();
 
     this.state = {
@@ -11,20 +11,27 @@ class Login extends React.Component {constructor() {
     handleSubmit = (e) => {
       e.preventDefault()
         
-      fetch('http://localhost:3000/api/v1/profile', {
-        method: 'GET',
+      fetch('http://localhost:3000/api/v1/users', {
+        method: 'POST',
+        body: JSON.stringify({
+           user: {
+            email: e.target.email.value,
+            password: e.target.password.value
+           } 
+        }),
         headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer <token>`
+            "Content-type": "application/json"
         }
       })
+      .then(resp => resp.json())
+      .then(err => this.setState({errormsg: err.error}))
     }
 
   render() {
       console.log(this.state.errormsg)
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1>Login</h1>
+        <h1>Signup</h1>
         <div>
           <input type="text" name="email" placeholder="Email Address" />
           <label htmlFor="email">Email</label>
@@ -40,4 +47,4 @@ class Login extends React.Component {constructor() {
   }
 }
 
-export default Login;
+export default Signup;

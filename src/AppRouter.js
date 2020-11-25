@@ -7,12 +7,13 @@ import DisplayWine from "./WineContainer/DisplayWine"
 import About from "./WineContainer/About"
 import Contact from "./WineContainer/Contact"
 import Cart from "./WineContainer/Cart"
+import Signup from "./WineContainer/Signup"
 import Login from "./WineContainer/Login"
 import AccountForm from "./WineContainer/AccountForm"
 
 const AppRouter = (props) => {
     // console.log(props.featured)
-    console.log(props.wines)
+    // console.log(props.wines)
   return (
     <div>
       <Switch>
@@ -22,6 +23,7 @@ const AppRouter = (props) => {
         <Route exact path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/cart" component={Cart} />
+        <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/account" component={AccountForm} />
       </Switch>
