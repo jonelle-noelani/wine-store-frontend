@@ -13,6 +13,7 @@ class Login extends React.Component {constructor() {
     handleSubmit = (e) => {
       e.preventDefault()
       console.log('before the fetch')
+      console.log(e)
         
       fetch('http://localhost:3000/api/v1/login', {
           method: 'POST',
@@ -27,7 +28,11 @@ class Login extends React.Component {constructor() {
           })
       })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+        this.setState({errormsg: data.message,
+        email: data.user.email,
+        token: data.jwt}, () => {this.props.history.push('/account')})
+        console.log(data)})
 
     //   fetch('http://localhost:3000/api/v1/profile', {
     //     method: 'GET',

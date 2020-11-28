@@ -26,21 +26,25 @@ const Header = () => {
       exact
       style={link}
       >Featured Wine</NavLink>
+
       <NavLink
       to="/browse"
       exact
       style={other}
       >Browse Wines</NavLink>
+
       <NavLink
       to="/login"
       exact
       style={link}
       >Login</NavLink>
+
       <NavLink
       to="/signup"
       exact
       style={other}
       >Signup</NavLink>
+      
       <NavLink
       to="/account"
       exact

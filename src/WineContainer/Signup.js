@@ -28,7 +28,7 @@ class Signup extends React.Component {constructor() {
     }
 
   render() {
-      console.log(this.state.errormsg)
+      // console.log(this.state.errormsg)
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Signup</h1>
@@ -40,7 +40,7 @@ class Signup extends React.Component {constructor() {
           <input type="password" name="password" placeholder="Password" />
           <label htmlFor="password">Password</label>
         </div>
-        <input type="submit" value="Login" />
+        <input type="submit" value="Signup" />
         <div>{this.state.errormsg}</div>
       </form>
     );
