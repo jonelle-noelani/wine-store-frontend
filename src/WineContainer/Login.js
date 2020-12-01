@@ -44,7 +44,7 @@ class Login extends React.Component {constructor() {
     }
 
   render() {
-      console.log(this.state)
+      // console.log(this.state)
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Login</h1>

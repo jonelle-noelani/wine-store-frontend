@@ -8,7 +8,7 @@ function Browse({wines}) {
         <h1>Browse A Selection of Wines</h1>
       
         <div className="browse grid">
-            {wines.map(wine => <WineCard wine={wine} />)}
+            {wines.map(wine => <WineCard wine={wine} key={wine.id} />)}
         </div>
         </>
     )
