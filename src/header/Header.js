@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 const Header = ({selectType, selectRegion}) => {
   const headerstyle = {
@@ -15,6 +15,19 @@ const Header = ({selectType, selectRegion}) => {
     padding: '10px',
     background: 'grey',
   }
+
+  // const logged_in = () => {
+  //   let token_check = localStorage.getItem('token') 
+  //   !!token_check? <NavLink to="/account">Hey</NavLink> : console.log("no")
+  // }
+
+  const logged_in = localStorage.getItem('token')
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    <Redirect to="/" />
+  }
+
   return (
     <div className="nav-bar">
       <ul style={headerstyle}>
@@ -50,23 +63,27 @@ const Header = ({selectType, selectRegion}) => {
   <option value="Spain">Spain</option>
 </select>
       
-      <NavLink
-      to="/login"
-      exact
-      style={link}
-      >Login</NavLink>
+    {/* {logged_in? <NavLink to="/account">Hey</NavLink> : console.log("no")} */}
+    {logged_in? 
+    <NavLink
+    to="/account"
+    exact
+    style={link}
+    >Account</NavLink> : 
+    
+    <NavLink
+    to="/signup"
+    exact
+    style={other}
+    >Signup</NavLink> }
 
-      <NavLink
-      to="/signup"
-      exact
-      style={other}
-      >Signup</NavLink>
-      
-      <NavLink
-      to="/account"
-      exact
-      style={link}
-      >Account</NavLink>
+    {logged_in? <button className="header button" onClick={() => logout}>Log Out</button> :
+    <NavLink
+    to="/login"
+    exact
+    style={link}
+    >Login</NavLink>}
+
     </div>
   );
 }

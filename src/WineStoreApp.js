@@ -28,7 +28,8 @@ componentDidMount(){
     .then(res => res.json())
     .then(wines => this.setState({
         wines: wines,
-        featured: wines.find(wine => wine.name === "House of Arras")
+        featured: wines.find(wine => wine.name === "House of Arras"),
+        token: localStorage.getItem('token')
     }))
 }
 
@@ -74,12 +75,13 @@ handleAuthFetch = (info, request, routerProps) => {
             email: data.user.email,
             token: data.jwt,
             errormsg: ''},
-        //   console.log(routerProps.history.push),
-          () => {routerProps.history.push('/account')}          
+            () => {routerProps.history.push('/account')},
+            localStorage.setItem('token', data.jwt)          
           )}
         console.log(data)
     })
 }
+        //   console.log(routerProps.history.push),
         //   () => {this.history.push('/account')}
 
 updateUser = (state, id) => {
