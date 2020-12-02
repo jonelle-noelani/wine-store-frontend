@@ -12,6 +12,9 @@ class WineStoreApp extends Component {constructor() {
 
     this.state = {
         wines: [],
+        selectedType: 'all',
+        selectedRegion: 'all',
+        // filteredType: [],
         featured: [],
         user: [],
         email: "",
@@ -79,10 +82,41 @@ handleAuthFetch = (info, request, routerProps) => {
 }
         //   () => {this.history.push('/account')}
 
+updateUser = (state, id) => {
+    fetch(`http://localhost:3000/api/v1/users/${id}`, {
+        method: 'PATCH',
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${this.state.token}`
+        },
+        body: JSON.stringify({
+            user: {
+                password: state.password,
+                name: state.name,
+                dob: state.dob,
+                line: state.line,
+                city: state.city,
+                state: state.state,
+                postal_code: state.postal_code
+            }
+        })
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data)
+        // this.setState({...this.state.user, data})
+    })
+}
 
-selectWines = (selectedwines) => {
-    console.log(selectedwines)
-    this.setState({wines: selectedwines})
+selectType = (type) => {
+    console.log(type)
+    this.setState({selectedType: type})
+}
+
+selectRegion = (region) => {
+    console.log(region)
+    this.setState({selectedRegion: region})
 }
 
     render() {
@@ -92,14 +126,18 @@ selectWines = (selectedwines) => {
         return (
             <div className="winestoreapp">
                 <Router>
-                    <Header wines={this.state.wines} selectWines={this.selectWines} />
+                    <Header selectType={this.selectType} selectRegion={this.selectRegion} />
                     <div className="winecontainer">
                     <AppRouter 
                     wines={this.state.wines} 
+                    type={this.state.selectedType}
+                    region={this.state.selectedRegion}
                     featured={this.state.featured} 
-                    renderForm={this.renderForm} 
+                    user={this.state.user}
                     email={this.state.email}
                     token={this.state.token}
+                    renderForm={this.renderForm} 
+                    save={this.updateUser}
                     />
                     </div>
                 </Router>

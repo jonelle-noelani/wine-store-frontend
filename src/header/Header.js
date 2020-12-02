@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Header = ({selectWines}) => {
+const Header = ({selectType, selectRegion}) => {
   const headerstyle = {
       fontFamily : 'Apple Chancery, cursive',
   }
@@ -34,15 +34,22 @@ const Header = ({selectWines}) => {
       >Browse Wines
       </NavLink>
 
-<select onChange={(e) => selectWines(e.target.value)} >
-  <option placeholder="all">Browse by Type</option>
+<select style={other} onChange={(e) => selectType(e.target.value)} >
+  <option value="all">Browse by Type</option>
   <option value="sparkling">Sparkling</option>
   <option value="white">White</option>
   <option value="red">Red</option>
 </select>
-      
-      
 
+<select style={link} onChange={(e) => selectRegion(e.target.value)} >
+  <option value="all">Browse by Region</option>
+  <option value="California">California</option>
+  <option value="Oregon">Oregon</option>
+  <option value="Australia">Australia</option>
+  <option value="France">France</option>
+  <option value="Spain">Spain</option>
+</select>
+      
       <NavLink
       to="/login"
       exact

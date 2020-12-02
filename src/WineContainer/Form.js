@@ -30,7 +30,7 @@ export default class Form extends React.Component {
              <input type="password" name="password" placeholder="Password" onChange={this.handleChange} />
             <label htmlFor="password">Password</label>
              </div>
-            <input type="submit" value="Login" />
+            <input type="submit" value={this.props.name} />
             <div>{this.props.err}</div>
             </form>
         )

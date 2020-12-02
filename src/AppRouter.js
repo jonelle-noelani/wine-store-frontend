@@ -19,14 +19,14 @@ const AppRouter = (props) => {
     <div>
       <Switch>
         <Route exact path="/" render={routerProps => <Featured {...routerProps} featured={props.featured} />} />
-        <Route exact path="/browse" render={routerProps => <Browse {...routerProps} wines={props.wines} />} />
+        <Route exact path="/browse" render={routerProps => <Browse {...routerProps} wines={props.wines} type={props.type} region={props.region} />} />
         <Route exact path="/wine" component={DisplayWine} />
         <Route exact path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/signup" render={routerProps => props.renderForm(routerProps)} />
         <Route exact path="/login" render={routerProps => props.renderForm(routerProps)} />
-        <Route exact path="/account" component={AccountForm} />
+  <Route exact path="/account" render={routerProps => <AccountForm {...routerProps} user={props.user} save={props.save} />} />
       </Switch>
     </div>
   )
