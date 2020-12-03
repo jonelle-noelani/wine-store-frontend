@@ -1,12 +1,12 @@
 import React from 'react';
 import WineCard from './WineCard';
 
-function Browse({ wines, type, region }) {
-    console.log(wines)
+function Browse({ wines, type, region, addToCart }) {
+    // console.log(wines)
 
     const selectType = (type, region) => {
-        console.log(type)
-        console.log(region)
+        // console.log(type)
+        // console.log(region)
         if(type === 'all' && region === 'all') {
             // console.log(wines)
             return wines
@@ -38,7 +38,7 @@ function Browse({ wines, type, region }) {
         <h1>Browse Our Selection of Wines</h1>
             {/* {selectType(type, region)} */}
         <div className="browse grid">
-            {selectType(type, region).map(wine => <WineCard wine={wine} key={wine.id} />)}
+            {selectType(type, region).map(wine => <WineCard wine={wine} key={wine.id} addToCart={addToCart} />)}
         </div>
         </>
     )

@@ -75,8 +75,9 @@ handleAuthFetch = (info, request, routerProps) => {
             email: data.user.email,
             token: data.jwt,
             errormsg: ''},
-            () => {routerProps.history.push('/account')},
-            localStorage.setItem('token', data.jwt)          
+            () => {routerProps.history.push('/account')
+            localStorage.setItem('token', data.jwt)
+            }          
           )}
         console.log(data)
     })
@@ -121,10 +122,27 @@ selectRegion = (region) => {
     this.setState({selectedRegion: region})
 }
 
+addToCart = (wine) => {
+    fetch('http://localhost:3000/api/v1/cart_items', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${this.state.token}`
+        },
+        body: JSON.stringify({wine_id: wine.id})
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        this.setState({user: data.user})
+    })
+}
+
     render() {
         // console.log(this.state.wines)
         // console.log(this.state.featured)
         console.log(this.state)
+        console.log(this.state.user.wines)
         return (
             <div className="winestoreapp">
                 <Router>
@@ -140,6 +158,7 @@ selectRegion = (region) => {
                     token={this.state.token}
                     renderForm={this.renderForm} 
                     save={this.updateUser}
+                    addToCart={this.addToCart}
                     />
                     </div>
                 </Router>

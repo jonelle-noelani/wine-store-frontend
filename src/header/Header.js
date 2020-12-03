@@ -1,7 +1,8 @@
 import React from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
-const Header = ({selectType, selectRegion}) => {
+
+const Header = ({selectType, selectRegion, history }) => {
   const headerstyle = {
       fontFamily : 'Apple Chancery, cursive',
   }
@@ -21,11 +22,11 @@ const Header = ({selectType, selectRegion}) => {
   //   !!token_check? <NavLink to="/account">Hey</NavLink> : console.log("no")
   // }
 
-  const logged_in = localStorage.getItem('token')
+  // const logged_in = localStorage.getItem('token')
 
   const logout = () => {
     localStorage.removeItem('token');
-    <Redirect to="/" />
+    history.push("/") 
   }
 
   return (
@@ -40,12 +41,12 @@ const Header = ({selectType, selectRegion}) => {
       style={link}
       >Featured Wine</NavLink>
 
-      <NavLink
+      {/* <NavLink
       to="/browse"
       exact
       style={other}
       >Browse Wines
-      </NavLink>
+      </NavLink> */}
 
 <select style={other} onChange={(e) => selectType(e.target.value)} >
   <option value="all">Browse by Type</option>
@@ -64,7 +65,7 @@ const Header = ({selectType, selectRegion}) => {
 </select>
       
     {/* {logged_in? <NavLink to="/account">Hey</NavLink> : console.log("no")} */}
-    {logged_in? 
+    {localStorage.getItem('token')? 
     <NavLink
     to="/account"
     exact
@@ -77,7 +78,7 @@ const Header = ({selectType, selectRegion}) => {
     style={other}
     >Signup</NavLink> }
 
-    {logged_in? <button className="header button" onClick={() => logout}>Log Out</button> :
+    {localStorage.getItem('token')? <button className="header button" onClick={logout}>Log Out</button> :
     <NavLink
     to="/login"
     exact
@@ -88,4 +89,4 @@ const Header = ({selectType, selectRegion}) => {
   );
 }
 
-export default Header;
+export default withRouter(Header);
