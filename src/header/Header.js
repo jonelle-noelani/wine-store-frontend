@@ -25,7 +25,7 @@ const Header = ({selectType, selectRegion, history }) => {
   // const logged_in = localStorage.getItem('token')
 
   const logout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('token', 'user');
     history.push("/") 
   }
 
@@ -41,12 +41,12 @@ const Header = ({selectType, selectRegion, history }) => {
       style={link}
       >Featured Wine</NavLink>
 
-      {/* <NavLink
+      <NavLink
       to="/browse"
       exact
       style={other}
       >Browse Wines
-      </NavLink> */}
+      </NavLink>
 
 <select style={other} onChange={(e) => selectType(e.target.value)} >
   <option value="all">Browse by Type</option>
@@ -63,6 +63,12 @@ const Header = ({selectType, selectRegion, history }) => {
   <option value="France">France</option>
   <option value="Spain">Spain</option>
 </select>
+
+      <NavLink
+      to="/cart"
+      exact
+      style={other}
+      >Cart</NavLink>
       
     {/* {logged_in? <NavLink to="/account">Hey</NavLink> : console.log("no")} */}
     {localStorage.getItem('token')? 

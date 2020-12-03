@@ -29,9 +29,17 @@ componentDidMount(){
     .then(wines => this.setState({
         wines: wines,
         featured: wines.find(wine => wine.name === "House of Arras"),
-        token: localStorage.getItem('token')
+        token: localStorage.getItem('token'),
+        user: JSON.parse(localStorage.getItem('user'))
     }))
 }
+
+// setUser = () => {
+//     if (this.state.user) {
+//         console.log("hit the method")
+//         this.setState({user: this.state.user})
+//     }
+// }
 
 renderForm = (routerProps) => {
     // console.log(routerProps)
@@ -77,6 +85,7 @@ handleAuthFetch = (info, request, routerProps) => {
             errormsg: ''},
             () => {routerProps.history.push('/account')
             localStorage.setItem('token', data.jwt)
+            localStorage.setItem('user', JSON.stringify(data.user))
             }          
           )}
         console.log(data)
@@ -135,6 +144,7 @@ addToCart = (wine) => {
     .then(data => {
         console.log(data)
         this.setState({user: data.user})
+        localStorage.setItem('user', JSON.stringify(data.user))
     })
 }
 
@@ -142,7 +152,7 @@ addToCart = (wine) => {
         // console.log(this.state.wines)
         // console.log(this.state.featured)
         console.log(this.state)
-        console.log(this.state.user.wines)
+        // console.log(this.state.user.wines)
         return (
             <div className="winestoreapp">
                 <Router>
