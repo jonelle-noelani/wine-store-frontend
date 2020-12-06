@@ -9,7 +9,6 @@ class AccountForm extends Component {
         }
     }
 
-
     handleChange = (e) => {
         this.setState({ input: {
             ...this.state.input, [e.target.name]: e.target.value
@@ -31,6 +30,7 @@ class AccountForm extends Component {
             <h1>Account Info</h1>
         <form onSubmit={this.handleSubmit} >
         <table>
+            <tbody>
             <tr>
                 <td><label htmlFor="email">Email</label></td>
                 <td><input name="email" type="text" readOnly value={email} /></td>
@@ -72,8 +72,10 @@ class AccountForm extends Component {
                 <td><label htmlFor="postal_code">Zip Code</label></td>
                 <td><input name="postal_code" type="text" defaultValue={postal_code} onChange={this.handleChange} /></td>
             </tr>
-            
-            <input value="Save Changes" type="submit" />
+            <tr>
+                <td><input value="Save Changes" type="submit" /></td>
+            </tr>
+            </tbody>
         </table>
         </form>
         </div>

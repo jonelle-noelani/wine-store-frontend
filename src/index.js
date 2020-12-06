@@ -6,12 +6,19 @@ import './index.css';
 import WineStoreApp from './WineStoreApp'
 import reportWebVitals from './reportWebVitals';
 
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+
 // import History for './history';
+
+const stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY)
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
+    <Elements stripe={stripePromise}>
     <WineStoreApp />
+    </Elements>
   </React.StrictMode>,
   document.getElementById('root')
 );

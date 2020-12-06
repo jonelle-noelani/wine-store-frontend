@@ -25,9 +25,11 @@ const Header = ({selectType, selectRegion, history }) => {
   // const logged_in = localStorage.getItem('token')
 
   const logout = () => {
-    localStorage.removeItem('token', 'user');
+    localStorage.clear();
     history.push("/") 
   }
+  // localStorage.removeItem('token');
+    // localStorage.removeItem('user');
 
   return (
     <div className="nav-bar">

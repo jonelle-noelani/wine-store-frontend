@@ -16,7 +16,7 @@ class WineStoreApp extends Component {constructor() {
         selectedRegion: 'all',
         // filteredType: [],
         featured: [],
-        user: [],
+        user: {wines: []},
         email: "",
         token: "",
         errormsg: []
@@ -117,7 +117,8 @@ updateUser = (state, id) => {
     .then(resp => resp.json())
     .then(data => {
         console.log(data)
-        // this.setState({...this.state.user, data})
+        this.setState({user: data})
+        localStorage.setItem('user', JSON.stringify(data.user))
     })
 }
 
