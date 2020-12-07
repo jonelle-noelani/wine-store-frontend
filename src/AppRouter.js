@@ -1,5 +1,5 @@
 import React from "react"
-import { Route, Switch } from "react-router-dom"
+import { Route, Router, Switch } from "react-router-dom"
 
 import Featured from "./WineContainer/Featured"
 import Browse from "./WineContainer/Browse"
@@ -26,7 +26,7 @@ const AppRouter = (props) => {
         <Route exact path="/signup" render={routerProps => props.renderForm(routerProps)} />
         <Route exact path="/login" render={routerProps => props.renderForm(routerProps)} />
         <Route exact path="/account" render={routerProps => <AccountForm {...routerProps} user={props.user} save={props.save} />} />
-        <Route exact path="/cart" render={routerProps => <Cart {...routerProps} user={props.user} />} />
+        <Route exact path="/cart" render={routerProps => <Cart {...routerProps} user={props.user} onSuccessfulCheckout={() => Router.push("success")} />} />
       </Switch>
     </div>
   )

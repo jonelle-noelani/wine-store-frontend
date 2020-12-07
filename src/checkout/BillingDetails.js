@@ -25,7 +25,7 @@ const BillingDetails = ({ user }) => {
     return (
         <div>
             <h5>Billing Details Here</h5>
-        <form>
+        {/* <form> */}
             <table>
             <tbody>
             <tr>
@@ -50,11 +50,11 @@ const BillingDetails = ({ user }) => {
                 </tr>
                 <tr>
                 <td><label htmlFor="postal_code">Zip</label></td>
-                <td><input name="postal_code" type="text" placeholder="postal_code here" defaultValue={postal_code} /></td>
+                <td><input name="postal_code" type="text" placeholder="zip code here" defaultValue={postal_code} /></td>
                 </tr>
             </tbody>
             </table>
-        </form>
+        {/* </form> */}
         </div>
     )
 }
