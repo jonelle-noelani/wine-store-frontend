@@ -157,7 +157,7 @@ addToCart = (wine) => {
         return (
             <div className="winestoreapp">
                 <Router>
-                    <Header selectType={this.selectType} selectRegion={this.selectRegion} />
+                    <Header />
                     <div className="winecontainer">
                     <AppRouter 
                     wines={this.state.wines} 
@@ -170,6 +170,8 @@ addToCart = (wine) => {
                     renderForm={this.renderForm} 
                     save={this.updateUser}
                     addToCart={this.addToCart}
+                    selectType={this.selectType}
+                    selectRegion={this.selectRegion}
                     />
                     </div>
                 </Router>

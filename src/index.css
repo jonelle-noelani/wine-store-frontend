@@ -11,6 +11,10 @@ code {
  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; 
 } 
 
+* {
+  box-sizing: border-box;
+}
+
 html{
   background-color: #ff99ff;
 }
@@ -20,4 +24,26 @@ h1, h3{
   background: #660066;
   color:#ff99ff;
   padding: 10px 3px 10px 10px
+}
+.container{
+  /* justify-self: center; */
+  /* align-self: center; */
+  /* padding: 10px; */
+  /* width: stretch; */
+  /* max-width: 70%; */
+  width: 70%;
+  height: auto;
+  background: #ffffff;
+  margin: auto;
+}
+.featured{
+  text-align: center;
+  width: auto;
+  height: auto;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin: 30px 60px;
+  background: #87bbfd;
 }

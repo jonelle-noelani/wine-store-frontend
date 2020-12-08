@@ -18,8 +18,8 @@ const AppRouter = (props) => {
   return (
     <div>
       <Switch>
-        <Route exact path="/" render={routerProps => <Featured {...routerProps} featured={props.featured} />} />
-        <Route exact path="/browse" render={routerProps => <Browse {...routerProps} wines={props.wines} type={props.type} region={props.region} addToCart={props.addToCart} />} />
+        <Route exact path="/" render={routerProps => <Featured {...routerProps} featured={props.featured} addToCart={props.addToCart}/>} />
+        <Route exact path="/browse" render={routerProps => <Browse {...routerProps} wines={props.wines} type={props.type} region={props.region} addToCart={props.addToCart} selectType={props.selectType} selectRegion={props.selectRegion}/>} />
         {/* <Route exact path="/wine" component={DisplayWine} /> */}
         {/* <Route exact path="/about" component={About} /> */}
         {/* <Route exact path="/contact" component={Contact} /> */}
