@@ -21,6 +21,18 @@ class AccountForm extends Component {
         this.props.save(this.state.input, this.props.user.id)
     }
 
+    accountStyle = {
+        width: '300px',
+        height: 'auto',
+        paddingLeft: '60px',
+        paddingRight: '60px',
+        paddingBottom: '20px',
+        paddingTop: '20px',
+        margin: 'auto',
+        background: 'gray',
+        boxShadow: "3px 4px #00ff00",
+    }
+
 
     render() {
         const { email, name, dob, line, city, state, postal_code } = this.props.user
@@ -28,6 +40,8 @@ class AccountForm extends Component {
         return ( 
         <div>
             <h1>Account Info</h1>
+
+            <div style={this.accountStyle}>
         <form onSubmit={this.handleSubmit} >
         <table>
             <tbody>
@@ -78,6 +92,8 @@ class AccountForm extends Component {
             </tbody>
         </table>
         </form>
+        </div>
+
         </div>
         )
     }

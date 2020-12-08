@@ -11,6 +11,7 @@ import Cart from "./WineContainer/Cart"
 // import Login from "./WineContainer/Login"
 // import Form from "./WineContainer/Form"
 import AccountForm from "./WineContainer/AccountForm"
+import Success from "./checkout/success"
 
 const AppRouter = (props) => {
     // console.log(props.featured)
@@ -26,10 +27,13 @@ const AppRouter = (props) => {
         <Route exact path="/signup" render={routerProps => props.renderForm(routerProps)} />
         <Route exact path="/login" render={routerProps => props.renderForm(routerProps)} />
         <Route exact path="/account" render={routerProps => <AccountForm {...routerProps} user={props.user} save={props.save} />} />
-        <Route exact path="/cart" render={routerProps => <Cart {...routerProps} user={props.user} onSuccessfulCheckout={() => Router.push("success")} />} />
+        <Route exact path="/cart" render={routerProps => <Cart {...routerProps} user={props.user}  />} />
+        <Route exact path="/success" component={Success} />
+
       </Switch>
     </div>
   )
 }
 
 export default AppRouter
+// onSuccessfulCheckout={() => Router.push("success")}

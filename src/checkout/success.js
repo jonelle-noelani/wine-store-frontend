@@ -1,7 +1,8 @@
+import React from "react";
 import Confetti from "react-confetti";
 import { useState, useEffect } from "react";
 
-export default () => {
+const Success = () => {
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
   
@@ -11,12 +12,29 @@ export default () => {
         setHeight(window.innerHeight);
       }, 100);
     });
-
+    
+    const successStyle = {
+      width: '400px',
+      height: 'auto',
+      paddingLeft: '60px',
+      paddingRight: '60px',
+      paddingBottom: '20px',
+      paddingTop: '20px',
+      margin: 'auto',
+      background: 'gray',
+      boxShadow: "3px 4px #00ff00",
+  }
     return (
-        <Container>
+        // <Container>
+        <div>
         <Confetti width={width} height={height} numberOfPieces={450} />
-        <Title>congrats!</Title>
-        <Message>Stripe has successfully processed your payment</Message>
-      </Container>
+        <h3>congrats!</h3>
+        <div style={successStyle}>
+        <p>Stripe has successfully processed your payment</p>
+        </div>
+        </div>
+      // </Container>
     )
 };
+
+export default Success;

@@ -28,7 +28,7 @@ componentDidMount(){
     .then(res => res.json())
     .then(wines => this.setState({
         wines: wines,
-        featured: wines.find(wine => wine.name === "House of Arras"),
+        featured: wines.find(wine => wine.name === "Schramsberg"),
         token: localStorage.getItem('token'),
         user: JSON.parse(localStorage.getItem('user'))
     }))

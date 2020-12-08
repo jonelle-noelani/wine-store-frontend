@@ -11,19 +11,21 @@ code {
  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; 
 } 
 
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 html{
-  background-color: #ff99ff;
+  background-color: #6f6286;
 }
 h1, h3{
   font-family: Apple Chancery, cursive;
   font-weight: 600;
-  background: #660066;
-  color:#ff99ff;
-  padding: 10px 3px 10px 10px
+  font-size: 50px;
+  background: black;
+  color: #ff40c4;
+  padding: 10px 30px 10px 50px;
+  /* margin-left: 10px; */
 }
 .container{
   /* justify-self: center; */
@@ -35,6 +37,7 @@ h1, h3{
   height: auto;
   background: #ffffff;
   margin: auto;
+  box-shadow: 3px 4px #00ff00;
 }
 .featured{
   text-align: center;
@@ -45,5 +48,5 @@ h1, h3{
   padding-bottom: 20px;
   padding-top: 20px;
   margin: 30px 60px;
-  background: #87bbfd;
+  /* background: grey; */
 }

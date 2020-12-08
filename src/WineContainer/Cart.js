@@ -15,7 +15,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 //   }
 // `;
 
-const Cart = ({ user, onSuccessfulCheckout }) =>  {
+const Cart = ({ user, onSuccessfulCheckout, history }) =>  {
 
     const wineTotal = () => {
         let total = user.wines.map(wine => wine.price * 1)
@@ -70,11 +70,16 @@ const Cart = ({ user, onSuccessfulCheckout }) =>  {
                             card: cardElement
                         }
                     }
-                )
-                if (result.error){
-                    setCheckoutError(result.error.message)
-                }
-                onSuccessfulCheckout();
+                ).then(resp => {
+                    if (resp.error){
+                        setCheckoutError(result.error.message)
+                    } else if (resp.paymentIntent && resp.paymentIntent.status === 'succeeded'){
+                        history.push("/success")
+                    }
+                })
+                
+                
+                // onSuccessfulCheckout();
 
                 // if (result.paymentIntent.status ==='succeeded') {
                 //     history.push("/")
@@ -109,10 +114,26 @@ const Cart = ({ user, onSuccessfulCheckout }) =>  {
             console.log('[PaymentMethod]', paymentMethod);
         }}
 
+        const cartStyle = {
+            alignSelf: "flex-start",
+            padding: "60px",
+            marginLeft: "10px",
+            // margin: "auto",
+            width: "40%",
+            background: "gray",
+            float: "left",
+            display: "inline-grid",
+            // width: "500px",
+            height: "80%",
+            boxShadow: "3px 4px #00ff00",
+        }
+
         return (
-            <div>
-            
-            <table>
+            <div style={{background: '#ffffff'}}>
+                <h1>Cart</h1>
+
+            <div style={cartStyle}>
+            <table >
                 <tbody> 
                 {userCart}
                 <tr>
@@ -121,7 +142,9 @@ const Cart = ({ user, onSuccessfulCheckout }) =>  {
                 </tr>
                 </tbody>
             </table>
+            </div>
 
+            <div style={cartStyle}>
             <form onSubmit={handleSubmit}>
             <BillingDetails user={user} /> 
           
@@ -147,6 +170,8 @@ const Cart = ({ user, onSuccessfulCheckout }) =>  {
              {/* {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>} */}
             <button type="submit" disabled={!stripe}>Pay</button>
             </form>
+            </div>
+
             </div>
       )
 }
