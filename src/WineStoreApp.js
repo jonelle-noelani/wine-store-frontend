@@ -14,7 +14,6 @@ class WineStoreApp extends Component {constructor() {
         wines: [],
         selectedType: 'all',
         selectedRegion: 'all',
-        // filteredType: [],
         featured: [],
         user: {wines: []},
         email: "",
@@ -34,15 +33,7 @@ componentDidMount(){
     }))
 }
 
-// setUser = () => {
-//     if (this.state.user) {
-//         console.log("hit the method")
-//         this.setState({user: this.state.user})
-//     }
-// }
-
 renderForm = (routerProps) => {
-    // console.log(routerProps)
     if (routerProps.location.pathname === "/login"){
         return <Form name="Login" handleSubmit={this.handleLogin} err={this.state.errormsg} routerProps={routerProps}/>
     } else if (routerProps.location.pathname === "/signup"){
@@ -52,7 +43,6 @@ renderForm = (routerProps) => {
 
 handleLogin = (info, routerProps) => {
     console.log('login')
-    // console.log(info)
     this.handleAuthFetch(info, 'http://localhost:3000/api/v1/login', routerProps)
 }
 
@@ -75,7 +65,6 @@ handleAuthFetch = (info, request, routerProps) => {
           })
       })
       .then(res => res.json())
-    //   .then(console.log)
       .then(data => {
           if (data.message) this.setState({errormsg: data.message})
           if (data.user) {this.setState({
@@ -91,8 +80,6 @@ handleAuthFetch = (info, request, routerProps) => {
         console.log(data)
     })
 }
-        //   console.log(routerProps.history.push),
-        //   () => {this.history.push('/account')}
 
 updateUser = (state, id) => {
     fetch(`http://localhost:3000/api/v1/users/${id}`, {
@@ -150,10 +137,7 @@ addToCart = (wine) => {
 }
 
     render() {
-        // console.log(this.state.wines)
-        // console.log(this.state.featured)
         console.log(this.state)
-        // console.log(this.state.user.wines)
         return (
             <div className="winestoreapp">
                 <Router>

@@ -9,9 +9,6 @@ import Logo from '../images/shop_logo2.jpg'
 
 
 const Header = ({ history }) => {
-  // const headerstyle = {
-  //     fontFamily : 'Apple Chancery, cursive',
-  // }
 
   const link = {
     padding: '15px',
@@ -58,33 +55,7 @@ const Header = ({ history }) => {
   </div>
 
   <div className="nav-bar"  style={{float: "right", overFlow: "hidden", background: "#00ff00", marginRight: '10px'}}>
-    {/* <div className="nav-bar" style={{width: "50%", right: "0", bottom: "0", position: "absolute", padding: "10px"}}> */}
-     {/* <nav
-     className="navbar is-primary"
-     role="navigation"
-     aria-label="main navigation"
-     >
-       <div className="container">
-         <div className="navbar-brand">
-           <a
-           role="button"
-           className={`navbar-burger burger ${isOpen && "is-active"}`}
-           aria-label="menu"
-           aria-expanded="false"
-           onClick={() => setOpen(!isOpen)}
-           >
-             <span aria-hidden="true"></span>
-             <span aria-hidden="true"></span>
-             <span aria-hidden="true"></span>
-             <span aria-hidden="true"></span>
-             <span aria-hidden="true"></span>
-           </a>
-         </div> */}
-{/* 
-         <div className={`navbar-menu ${isOpen && "is-active"}`}>
-           <div className="navbar-start">
-             
-           */}
+   
       <NavLink
       exact to="/"
       style={link}

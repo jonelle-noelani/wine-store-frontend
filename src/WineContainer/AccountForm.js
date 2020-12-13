@@ -1,4 +1,3 @@
-// import { render } from '@testing-library/react';
 import React, { Component } from 'react';
 
 class AccountForm extends Component {
@@ -49,7 +48,6 @@ class AccountForm extends Component {
                 <td><label htmlFor="email">Email</label></td>
                 <td><input name="email" type="text" readOnly value={email} /></td>
 
-                {/* <td><h5 name="email" id="email" >{email} </h5></td> */}
             </tr>
             
             <tr>

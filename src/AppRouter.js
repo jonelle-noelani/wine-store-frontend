@@ -14,8 +14,7 @@ import AccountForm from "./WineContainer/AccountForm"
 import Success from "./checkout/success"
 
 const AppRouter = (props) => {
-    // console.log(props.featured)
-    // console.log(props.wines)
+
   return (
     <div>
       <Switch>
@@ -36,4 +35,3 @@ const AppRouter = (props) => {
 }
 
 export default AppRouter
-// onSuccessfulCheckout={() => Router.push("success")}

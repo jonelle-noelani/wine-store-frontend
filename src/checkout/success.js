@@ -25,7 +25,6 @@ const Success = () => {
       boxShadow: "3px 4px #00ff00",
   }
     return (
-        // <Container>
         <div>
         <Confetti width={width} height={height} numberOfPieces={450} />
         <h3>congrats!</h3>
@@ -33,7 +32,6 @@ const Success = () => {
         <p>Stripe has successfully processed your payment</p>
         </div>
         </div>
-      // </Container>
     )
 };
 

@@ -2,20 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import BillingDetails from '../checkout/BillingDetails';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-// import styled from "@emotion/styled";
-    
-// const CardElementContainer = styled.div`
-//   height: 40px;
-//   display: flex;
-//   align-items: center;
 
-//   & .StripeElement {
-//     width: 100%;
-//     padding: 15px;
-//   }
-// `;
-
-const Cart = ({ user, onSuccessfulCheckout, history }) =>  {
+const Cart = ({ user, history }) =>  {
 
     const wineTotal = () => {
         let total = user.wines.map(wine => wine.price * 1)
@@ -37,7 +25,6 @@ const Cart = ({ user, onSuccessfulCheckout, history }) =>  {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // let token = await stripe.createToken({name: 'Name'})
 
         const billingDetails = {
             name: e.target.name.value,
@@ -49,7 +36,6 @@ const Cart = ({ user, onSuccessfulCheckout, history }) =>  {
               postal_code: e.target.postal_code.value
             }
           };
-        //   setProcessingTo(true);
 
             fetch('http://localhost:3000/api/v1/charges', {
                 method: 'POST',
@@ -58,8 +44,6 @@ const Cart = ({ user, onSuccessfulCheckout, history }) =>  {
                 },
                 body: JSON.stringify({
                     checkout_user_id: user.id
-                    // receipt_email: e.target.email.value
-                    // token: token.id
                 }),
             })
             .then(resp => resp.json())
@@ -77,13 +61,6 @@ const Cart = ({ user, onSuccessfulCheckout, history }) =>  {
                         history.push("/success")
                     }
                 })
-                
-                
-                // onSuccessfulCheckout();
-
-                // if (result.paymentIntent.status ==='succeeded') {
-                //     history.push("/")
-                // }
             })
           
           
@@ -93,11 +70,6 @@ const Cart = ({ user, onSuccessfulCheckout, history }) =>  {
         if (!stripe || !elements) {
             return;
         }
-        // let response = fetch('/secret').then(function(response) {
-        //     return response.json();
-        // }).then(function(responseJson){
-        //     let clientSecret = responseJson.client_secret;
-        // });
 
         const {error, paymentMethod} = await stripe.createPaymentMethod({
             type: 'card',
@@ -107,7 +79,6 @@ const Cart = ({ user, onSuccessfulCheckout, history }) =>  {
         if (error) {
             console.log('[error]', error);
             setCheckoutError(error.message);
-            // setProcessingTo(false);
             return;
         }
         else {
@@ -118,12 +89,10 @@ const Cart = ({ user, onSuccessfulCheckout, history }) =>  {
             alignSelf: "flex-start",
             padding: "60px",
             marginLeft: "10px",
-            // margin: "auto",
             width: "40%",
             background: "gray",
             float: "left",
             display: "inline-grid",
-            // width: "500px",
             height: "80%",
             boxShadow: "3px 4px #00ff00",
         }

@@ -18,10 +18,24 @@ export default class Form extends React.Component {
         })
     }
 
+    formStyle = {
+        width: '300px',
+        height: 'auto',
+        paddingLeft: '60px',
+        paddingRight: '60px',
+        paddingBottom: '20px',
+        paddingTop: '20px',
+        margin: 'auto',
+        background: 'gray',
+        boxShadow: "3px 4px #00ff00",
+    }
+
     render(){
         return(
+            <div>
+                <h1>{this.props.name}</h1>
+            <div style={this.formStyle}>
             <form onSubmit={this.handleSubmit} >
-            <h1>{this.props.name}</h1>
             <div>
             <input type="text" name="email" placeholder="Email Address" onChange={this.handleChange} />
             <label htmlFor="email">Email</label>
@@ -33,6 +47,8 @@ export default class Form extends React.Component {
             <input type="submit" value={this.props.name} />
             <div>{this.props.err}</div>
             </form>
+            </div>
+            </div>
         )
     }
 }
