@@ -63,8 +63,6 @@ const Cart = ({ user, history }) =>  {
                 })
             })
           
-          
-            
             const cardElement = elements.getElement('card');
 
         if (!stripe || !elements) {

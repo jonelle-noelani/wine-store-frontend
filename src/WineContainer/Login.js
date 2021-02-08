@@ -33,18 +33,9 @@ class Login extends React.Component {constructor() {
         email: data.user.email,
         token: data.jwt}, () => {this.props.history.push('/account')})
         console.log(data)})
-
-    //   fetch('http://localhost:3000/api/v1/profile', {
-    //     method: 'GET',
-    //     headers: {
-    //         "Content-type": "application/json",
-    //         "Authorization": `Bearer ${this.state.token}`
-    //     }
-    //   })
     }
 
   render() {
-      // console.log(this.state)
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Login</h1>

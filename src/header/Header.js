@@ -1,12 +1,6 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
-// import Logo from '../images/shop_logo1.png'
 import Logo from '../images/shop_logo2.jpg'
-
-
-// import "bulma/css/bulma.min.css";
-
-
 
 const Header = ({ history }) => {
 
@@ -15,7 +9,6 @@ const Header = ({ history }) => {
     background: 'black',
     textDecoration: 'inherit',
     color: '#ff40c4',
-    // marginBottom: '50px',
     width: '20%',
     fontWeight: '650',
   }
@@ -27,17 +20,7 @@ const Header = ({ history }) => {
     color: '#ff40c4',
     width: '20%',
     fontWeight: '650',
-
   }
-
-  // const [isOpen, setOpen] = useState(false);
-
-  // const logged_in = () => {
-  //   let token_check = localStorage.getItem('token') 
-  //   !!token_check? <NavLink to="/account">Hey</NavLink> : console.log("no")
-  // }
-
-  // const logged_in = localStorage.getItem('token')
 
   const logout = () => {
     localStorage.clear();
@@ -45,7 +28,6 @@ const Header = ({ history }) => {
 
     history.push("/") 
   }
-  // localStorage.removeItem('token');
 
   return (
     <>
@@ -87,7 +69,6 @@ const Header = ({ history }) => {
       style={link}
       >Cart</NavLink>
       
-    {/* {logged_in? <NavLink to="/account">Hey</NavLink> : console.log("no")} */}
     {localStorage.getItem('token')? 
     <NavLink
     exact to="/account"
@@ -120,20 +101,12 @@ const Header = ({ history }) => {
     style={link}
     >Login</NavLink>}
     </div>
+
     <div className="navbar-end">
       <div className="navbar-item">
-        
-          
-             
-                </div>
-              </div>
-            </div>
-            
-         {/* </div>
-         </nav>
-       </div>
-     
-     </div> */}
+      </div>
+    </div>
+  </div>
     </>
   );
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import WineCard from './WineCard';
 
 function Browse({ selectType, selectRegion, wines, type, region, addToCart }) {
-    
 
     const selectedType = (type, region) => {
     
@@ -17,11 +16,8 @@ function Browse({ selectType, selectRegion, wines, type, region, addToCart }) {
             return wines.filter(wine => wine.region === region)
         }
         else {
-            return wines.filter(wine => (wine.wine_type === type && wine.region === region))
-        
-            
-        }
-            
+            return wines.filter(wine => (wine.wine_type === type && wine.region === region)) 
+        }  
     }
 
     return (
