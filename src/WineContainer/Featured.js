@@ -7,7 +7,6 @@ export default class Featured extends Component {
             <>
             <h1>Featured Wine</h1>
             <div className="container">
-            {/* <h3>Name and Price of Featured Wine</h3> */}
 
                 <div className="featured">
                 <img src={this.props.featured.image} alt="wine bottle" style={{justifySelf: "center", width: "40%", height: "auto"}} />

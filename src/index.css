@@ -11,10 +11,6 @@ code {
  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; 
 } 
 
-/* * {
-  box-sizing: border-box;
-} */
-
 html{
   background-color: #6f6286;
 }
@@ -25,14 +21,9 @@ h1, h3{
   background: black;
   color: #ff40c4;
   padding: 10px 30px 10px 50px;
-  /* margin-left: 10px; */
 }
 .container{
-  /* justify-self: center; */
-  /* align-self: center; */
-  /* padding: 10px; */
-  /* width: stretch; */
-  /* max-width: 70%; */
+
   width: 70%;
   height: auto;
   background: #ffffff;
@@ -48,5 +39,4 @@ h1, h3{
   padding-bottom: 20px;
   padding-top: 20px;
   margin: 30px 60px;
-  /* background: grey; */
 }

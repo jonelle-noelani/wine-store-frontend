@@ -3,29 +3,9 @@ import React from 'react';
 const BillingDetails = ({ user }) => {
     const { name, email, line, city, state, postal_code } = user
 
-    // const nameField = () => {
-    //     name === null? placeholder="name here" : defaultValue={name}
-    // }
-
-    // const nameField = (name === null)? placeholder="name here" : defaultValue={name}
-    
-    // const nameField = () => {
-        // console.log("do something")
-    //     (name === null)? `placeholder="name here"` : "defaultValue={name}"
-    // }
-
-    // function nameField() {
-    //     (name === null) ? console.log("do something") : console.log("whyyyyy");
-    // }
-
-    // function nameField() {
-    //     (name === null) ? input.placeholder="name here" : console.log("whyyyyy");
-    // }
-
     return (
         <div>
             <h5>Billing Details Here</h5>
-        {/* <form> */}
             <table>
             <tbody>
             <tr>
@@ -54,7 +34,6 @@ const BillingDetails = ({ user }) => {
                 </tr>
             </tbody>
             </table>
-        {/* </form> */}
         </div>
     )
 }
